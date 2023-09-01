@@ -1,0 +1,45 @@
+---
+brand:
+    products:
+        limit: {{theme_settings.brandpage_products_per_page}}
+        images: 2
+---
+{{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.brand.previous}}
+        <link rel="prev" href="{{pagination.brand.previous}}">
+    {{/if}}
+    {{#if pagination.brand.next}}
+        <link rel="next" href="{{pagination.brand.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+<h1 class="page-heading">
+    {{#if brand.image}}
+        {{> components/common/responsive-img
+            image=brand.image
+            lazyload="lazyload+lqip"
+            lqip_size=theme_settings.brandpage_logo_size
+            fallback_size=theme_settings.brand_size
+            default_image=theme_settings.default_image_brand
+        }}
+    {{else}}
+        {{brand.name}}
+    {{/if}}
+</h1>
+{{{region name="brand_below_header"}}}
+<div class="page">
+
+    <main class="page-content" id="product-listing-container">
+        {{#if brand.products}}
+            {{> components/brand/product-listing}}
+        {{else}}
+            <p>{{lang 'brands.no_products'}}</p>
+        {{/if}}
+        {{{region name="brand_below_content"}}}
+    </main>
+</div>
+
+{{/partial}}
+{{> layout/base}}
