@@ -563,7 +563,7 @@
         "button--primary-color": "#ffffff",
         "button--primary-colorHover": "#ffffff",
         "button--primary-colorActive": "#ffffff",
-        "button--primary-backgroundColor": "#E53A46",
+        "button--primary-backgroundColor": "#f37160",
         "button--primary-backgroundColorHover": "#C91522",
         "button--primary-backgroundColorActive": "#000000",
         "button--disabled-color": "#ffffff",
