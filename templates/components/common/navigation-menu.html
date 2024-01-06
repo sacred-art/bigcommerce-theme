@@ -2,27 +2,127 @@
     <div class="navPages-quickSearch">
         {{> components/common/quick-search name='nav-menu-quick-search'}}
     </div>
-    <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+    <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}{{#if theme_settings.mwn_features_megamenu}} navPages-list-megamenu{{/if}}">
         {{#if categories.length '>' 0}}
-            <li class="navPages-item">
-                <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-categories">
-                    Shop <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+            {{#if theme_settings.mwn_features_megamenu}}
+            <li class="navPages-item has-megamenu">
+                <a class="navPages-action has-subMenu activePage" href="/apparel-and-accessories/" data-collapsible="navPages-531" data-collapsible-disabled-breakpoint="medium" aria-label="Apparel &amp; Accessories" aria-controls="navPages-531" aria-expanded="false">
+                    Apparel &amp; Accessories
+                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                    <svg><use href="#icon-chevron-down"></use></svg>
+                    </i>
                 </a>
-                <div class="navPage-subMenu" id="navPages-categories" aria-hidden="true" tabindex="-1">
-                    <ul class="navPage-subMenu-list">
-                    {{#each categories}}
-                        <li class="navPages-item">
-                        {{#if ../theme_settings.navigation_design '===' 'simple'}}
-                            {{> components/common/navigation-list}}
-                        {{/if}}
-                        {{#if ../theme_settings.navigation_design '===' 'alternate'}}
-                            {{> components/common/navigation-list-alternate}}
-                        {{/if}}
-                        </li>
-                    {{/each}}
-                    </ul>
+                <div class="navPage-subMenu" id="navPages-531" aria-hidden="true" tabindex="-1">
+                <ul class="navPage-subMenu-list">
+                <li class="navPage-subMenu-item navPage-subMenu-item-all">
+                    <a class="navPage-subMenu-action navPages-action" href="/apparel-and-accessories/" aria-label="All Apparel &amp; Accessories">
+                        All Apparel &amp; Accessories
+                    </a>
+                </li>
+                    <li class="navPage-subMenu-item">
+                                <a class="image" href="/apparel-and-accessories/clothing/">
+                                    <img src="" alt="Clothing" title="Clothing" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/80w/u/midwest_nice-tshirt__57616_category.original.jpg 80w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/160w/u/midwest_nice-tshirt__57616_category.original.jpg 160w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/320w/u/midwest_nice-tshirt__57616_category.original.jpg 320w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/640w/u/midwest_nice-tshirt__57616_category.original.jpg 640w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/960w/u/midwest_nice-tshirt__57616_category.original.jpg 960w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1280w/u/midwest_nice-tshirt__57616_category.original.jpg 1280w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1920w/u/midwest_nice-tshirt__57616_category.original.jpg 1920w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/2560w/u/midwest_nice-tshirt__57616_category.original.jpg 2560w" data-srcset="https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/80w/u/midwest_nice-tshirt__57616_category.original.jpg 80w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/160w/u/midwest_nice-tshirt__57616_category.original.jpg 160w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/320w/u/midwest_nice-tshirt__57616_category.original.jpg 320w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/640w/u/midwest_nice-tshirt__57616_category.original.jpg 640w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/960w/u/midwest_nice-tshirt__57616_category.original.jpg 960w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1280w/u/midwest_nice-tshirt__57616_category.original.jpg 1280w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1920w/u/midwest_nice-tshirt__57616_category.original.jpg 1920w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/2560w/u/midwest_nice-tshirt__57616_category.original.jpg 2560w" class="lazyautosizes lazyloaded" sizes="279px">
+                                </a>
+                            <a class="navPage-subMenu-action navPages-action has-subMenu" href="/apparel-and-accessories/clothing/" aria-label="Clothing">
+                                Clothing
+                                <span class="collapsible-icon-wrapper is-open" data-collapsible="navPages-544" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed" aria-expanded="true" aria-label="" aria-controls="navPages-544">
+                                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                                        <svg><use href="#icon-chevron-down"></use></svg>
+                                    </i>
+                                </span>
+                            </a>
+                            <ul class="navPage-childList is-open" id="navPages-544" aria-hidden="false">
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action" href="/apparel-and-accessories/clothing/t-shirts/" aria-label="T-Shirts">
+                                        T-Shirts
+                                    </a>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="navPage-subMenu-item">
+                                <a class="image" href="/apparel-and-accessories/clothing/headwear/">
+                                    <img src="" alt="Headwear" title="Headwear" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/80w/p/apparel_headwear__77488.original.jpg 80w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/160w/p/apparel_headwear__77488.original.jpg 160w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/320w/p/apparel_headwear__77488.original.jpg 320w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/640w/p/apparel_headwear__77488.original.jpg 640w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/960w/p/apparel_headwear__77488.original.jpg 960w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1280w/p/apparel_headwear__77488.original.jpg 1280w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1920w/p/apparel_headwear__77488.original.jpg 1920w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/2560w/p/apparel_headwear__77488.original.jpg 2560w" data-srcset="https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/80w/p/apparel_headwear__77488.original.jpg 80w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/160w/p/apparel_headwear__77488.original.jpg 160w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/320w/p/apparel_headwear__77488.original.jpg 320w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/640w/p/apparel_headwear__77488.original.jpg 640w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/960w/p/apparel_headwear__77488.original.jpg 960w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1280w/p/apparel_headwear__77488.original.jpg 1280w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1920w/p/apparel_headwear__77488.original.jpg 1920w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/2560w/p/apparel_headwear__77488.original.jpg 2560w" class="lazyautosizes lazyloaded" sizes="279px">
+                                </a>
+                            <a class="navPage-subMenu-action navPages-action has-subMenu" href="/apparel-and-accessories/clothing/headwear/" aria-label="Headwear">
+                                Headwear
+                                <span class="collapsible-icon-wrapper is-open" data-collapsible="navPages-548" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed" aria-expanded="true" aria-label="" aria-controls="navPages-548">
+                                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                                        <svg><use href="#icon-chevron-down"></use></svg>
+                                    </i>
+                                </span>
+                            </a>
+                            <ul class="navPage-childList is-open" id="navPages-548" aria-hidden="false">
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action" href="/apparel-and-accessories/headwear/hats/" aria-label="Hats">
+                                        Hats
+                                    </a>
+                                </li>
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action" href="/apparel-and-accessories/headwear/beanies/" aria-label="Beanies">
+                                        Beanies
+                                    </a>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="navPage-subMenu-item">
+                                <a class="image" href="/apparel-and-accessories/jewelry/">
+                                    <img src="" alt="Jewelry" title="Jewelry" data-sizes="auto" srcset="https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/80w/s/jewelry_category__25020.original.jpg 80w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/160w/s/jewelry_category__25020.original.jpg 160w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/320w/s/jewelry_category__25020.original.jpg 320w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/640w/s/jewelry_category__25020.original.jpg 640w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/960w/s/jewelry_category__25020.original.jpg 960w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1280w/s/jewelry_category__25020.original.jpg 1280w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1920w/s/jewelry_category__25020.original.jpg 1920w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/2560w/s/jewelry_category__25020.original.jpg 2560w" data-srcset="https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/80w/s/jewelry_category__25020.original.jpg 80w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/160w/s/jewelry_category__25020.original.jpg 160w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/320w/s/jewelry_category__25020.original.jpg 320w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/640w/s/jewelry_category__25020.original.jpg 640w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/960w/s/jewelry_category__25020.original.jpg 960w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1280w/s/jewelry_category__25020.original.jpg 1280w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/1920w/s/jewelry_category__25020.original.jpg 1920w, https://cdn11.bigcommerce.com/s-2no392teb5/images/stencil/2560w/s/jewelry_category__25020.original.jpg 2560w" class="lazyautosizes lazyloaded" sizes="279px">
+                                </a>
+                            <a class="navPage-subMenu-action navPages-action has-subMenu" href="/apparel-and-accessories/jewelry/" aria-label="Jewelry">
+                                Jewelry
+                                <span class="collapsible-icon-wrapper is-open" data-collapsible="navPages-545" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed" aria-expanded="true" aria-label="" aria-controls="navPages-545">
+                                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                                        <svg><use href="#icon-chevron-down"></use></svg>
+                                    </i>
+                                </span>
+                            </a>
+                            <ul class="navPage-childList is-open" id="navPages-545" aria-hidden="false">
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action" href="/apparel-and-accessories/jewelry/earrings/" aria-label="Earrings">
+                                        Earrings
+                                    </a>
+                                </li>
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action" href="/apparel-and-accessories/jewelry/necklaces/" aria-label="Necklaces">
+                                        Necklaces
+                                    </a>
+                                </li>
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action" href="/apparel-and-accessories/jewelry/bracelets/" aria-label="Bracelets">
+                                        Bracelets
+                                    </a>
+                                </li>
+                            </ul>
+                    </li>
+                </ul>
                 </div>
             </li>
+                {{#each (limit categories 4)}}
+                    <li class="navPages-item{{#if children}} has-megamenu{{/if}}">
+                        {{> components/common/navigation-list-megamenu}}
+                    </li>
+                {{/each}}
+            {{else}}
+                <li class="navPages-item">
+                    <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-categories">
+                        Shop <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                    </a>
+                    <div class="navPage-subMenu" id="navPages-categories" aria-hidden="true" tabindex="-1">
+                        <ul class="navPage-subMenu-list">
+                        {{#each categories}}
+                            <li class="navPages-item">
+                            {{#if ../theme_settings.navigation_design '===' 'simple'}}
+                                {{> components/common/navigation-list}}
+                            {{/if}}
+                            {{#if ../theme_settings.navigation_design '===' 'alternate'}}
+                                {{> components/common/navigation-list-alternate}}
+                            {{/if}}
+                            </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </li>
+            {{/if}}
         {{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}

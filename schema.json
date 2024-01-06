@@ -530,6 +530,11 @@
         "type": "checkbox",
         "label": "Enable Add to Cart Emoji",
         "id": "mwn_global_cart_emoji"
+      },
+      {
+        "type": "checkbox",
+        "label": "Navigation MegaMenu",
+        "id": "mwn_features_megamenu"
       }
     ]
   },
