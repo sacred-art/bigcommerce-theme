@@ -1234,6 +1234,34 @@
       },
       {
         "type": "heading",
+        "content": "Featured Product Block"
+      },
+      {
+        "type": "checkbox",
+        "force_reload": true,
+        "id": "mwn_home_product_block",
+        "label": "Display featured product"
+      },
+      {
+        "type": "text",
+        "force_reload": true,
+        "id": "mwn_home_product_block_heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "force_reload": true,
+        "id": "mwn_home_product_block_description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "force_reload": true,
+        "id": "mwn_home_product_block_id",
+        "label": "Product ID"
+      },
+      {
+        "type": "heading",
         "content": "Featured Category Block"
       },
       {

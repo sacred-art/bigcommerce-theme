@@ -95,6 +95,14 @@ gql: "query getLocations {
     {{/if}}
     {{{region name="home_below_featured_products"}}}
 
+    {{#if theme_settings.mwn_home_product_block}}
+        {{> components/products/featured-product-block
+            id=theme_settings.mwn_home_product_block_id
+            heading=theme_settings.mwn_home_product_block_heading
+            description=theme_settings.mwn_home_product_block_description
+        }}
+    {{/if}}
+
     {{#if theme_settings.mwn_home_category_block}}
         {{#if theme_settings.mwn_home_category_block_region '===' 'home_below_featured_products'}}
             {{#filter categories theme_settings.mwn_home_category_block_id property="id"}}
