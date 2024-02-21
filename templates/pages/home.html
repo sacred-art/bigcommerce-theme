@@ -96,11 +96,13 @@ gql: "query getLocations {
     {{{region name="home_below_featured_products"}}}
 
     {{#if theme_settings.mwn_home_product_block}}
-        {{> components/products/featured-product-block
-            id=theme_settings.mwn_home_product_block_id
-            heading=theme_settings.mwn_home_product_block_heading
-            description=theme_settings.mwn_home_product_block_description
-        }}
+        {{#if theme_settings.mwn_home_product_block_region '===' 'home_below_featured_products'}}
+            {{> components/products/featured-product-block
+                id=theme_settings.mwn_home_product_block_id
+                heading=theme_settings.mwn_home_product_block_heading
+                description=theme_settings.mwn_home_product_block_description
+            }}
+        {{/if}}
     {{/if}}
 
     {{#if theme_settings.mwn_home_category_block}}
@@ -120,7 +122,13 @@ gql: "query getLocations {
     {{> components/info/quick-intro}}
     
     {{#if theme_settings.mwn_home_product_block}}
-        
+        {{#if theme_settings.mwn_home_product_block_region '===' 'home_below_intro'}}
+            {{> components/products/featured-product-block
+                id=theme_settings.mwn_home_product_block_id
+                heading=theme_settings.mwn_home_product_block_heading
+                description=theme_settings.mwn_home_product_block_description
+            }}
+        {{/if}}
     {{/if}}
     
     {{#if categories}}
