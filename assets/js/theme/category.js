@@ -2,7 +2,7 @@ import { hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
-import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
+import { createTranslationDictionary } from './common/utils/translations-utils';
 import { showCategoryModal } from './global/modal';
 
 export default class Category extends CatalogPage {
@@ -22,7 +22,7 @@ export default class Category extends CatalogPage {
         if (!$('[data-shop-by-price]').length) return;
 
         if ($('.navList-action').hasClass('is-active')) {
-            $('a.navList-action.is-active').focus();
+            $('a.navList-action.is-active').trigger('focus');
         }
 
         $('a.navList-action').on('click', () => this.setLiveRegionAttributes($('span.price-filter-message'), 'status', 'assertive'));
@@ -37,11 +37,21 @@ export default class Category extends CatalogPage {
 
         compareProducts(this.context);
 
-        if ($('#facetedSearch').length > 0) {
-            this.initFacetedSearch();
-        } else {
+        this.initFacetedSearch();
+
+        if (!$('#facetedSearch').length) {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
             hooks.on('sortBy-submitted', this.onSortBySubmit);
+
+            // Refresh range view when shop-by-price enabled
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.has('search_query')) {
+                $('.reset-filters').show();
+            }
+
+            $('input[name="price_min"]').attr('value', urlParams.get('price_min'));
+            $('input[name="price_max"]').attr('value', urlParams.get('price_max'));
         }
 
         $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
@@ -50,18 +60,13 @@ export default class Category extends CatalogPage {
         this.initCategoryButton();
     }
 
-    initCategoryButton() {
-        const button = document.querySelector('.mobileCategory--toggleButton');
-        if (button) {
-            button.addEventListener('click', showCategoryModal);
-        }
-    }
-
     ariaNotifyNoProducts() {
         const $noProductsMessage = $('[data-no-products-notification]');
         if ($noProductsMessage.length) {
-            $noProductsMessage.focus();
+            $noProductsMessage.trigger('focus');
         }
+
+        $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
     }
 
     initFacetedSearch() {
@@ -78,7 +83,6 @@ export default class Category extends CatalogPage {
         const requestOptions = {
             config: {
                 category: {
-                    shop_by_price: true,
                     products: {
                         limit: productsPerPage,
                     },
@@ -109,5 +113,12 @@ export default class Category extends CatalogPage {
                 onInvalidPrice,
             },
         });
+    }
+
+    initCategoryButton() {
+        const button = document.querySelector('.mobileCategory--toggleButton');
+        if (button) {
+            button.addEventListener('click', showCategoryModal);
+        }
     }
 }
