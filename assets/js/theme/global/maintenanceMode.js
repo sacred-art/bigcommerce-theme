@@ -38,7 +38,6 @@ export default function (maintenanceMode = {}) {
                 </div>
             </div>`);
 
-
         $('body').addClass('hasAdminBar');
         $('body').prepend($element);
     } else {
@@ -46,7 +45,6 @@ export default function (maintenanceMode = {}) {
             id: 'maintenance-notice',
             class: 'maintenanceNotice',
         });
-
 
         $element.html(`<p class="maintenanceNotice-header">${header}</p>${notice}`);
 

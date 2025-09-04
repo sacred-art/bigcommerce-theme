@@ -73,14 +73,13 @@ export default class Category extends CatalogPage {
     initCategoryButton() {
         const button = document.querySelector('.mobileCategory--toggleButton');
         if (button) {
-            button.addEventListener('click', showCategoryModal);
-        }
-    }
-
-    ariaNotifyNoProducts() {
-        const $noProductsMessage = $('[data-no-products-notification]');
-        if ($noProductsMessage.length) {
-            $noProductsMessage.focus();
+            button.addEventListener('click', () => {
+                // Toggle mobile category menu
+                const categoryMenu = document.querySelector('.mobileCategory--menu');
+                if (categoryMenu) {
+                    categoryMenu.classList.toggle('is-open');
+                }
+            });
         }
     }
 
