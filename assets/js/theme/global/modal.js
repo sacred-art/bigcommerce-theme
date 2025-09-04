@@ -338,3 +338,12 @@ export function showAlertModal(message, options = {}) {
         $cancelBtn.hide();
     }
 }
+
+export function categoryModal() {
+    return modalFactory('#category-modal')[0];
+}
+
+export function showCategoryModal() {
+    const modal = categoryModal();
+    modal.open({ size: 'large', pending: false, clearContent: false });
+}

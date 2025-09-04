@@ -3,6 +3,7 @@ import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
 import { createTranslationDictionary } from './common/utils/translations-utils';
+import { showCategoryModal } from './global/modal';
 
 export default class Category extends CatalogPage {
     constructor(context) {
@@ -68,19 +69,6 @@ export default class Category extends CatalogPage {
         $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
     }
 
-    initCategoryButton() {
-        const button = document.querySelector('.mobileCategory--toggleButton');
-        if (button) {
-            button.addEventListener('click', () => {
-                // Toggle mobile category menu
-                const categoryMenu = document.querySelector('.mobileCategory--menu');
-                if (categoryMenu) {
-                    categoryMenu.classList.toggle('is-open');
-                }
-            });
-        }
-    }
-
     initFacetedSearch() {
         const {
             price_min_evaluation: onMinPriceError,
@@ -125,5 +113,12 @@ export default class Category extends CatalogPage {
                 onInvalidPrice,
             },
         });
+    }
+
+    initCategoryButton() {
+        const button = document.querySelector('.mobileCategory--toggleButton');
+        if (button) {
+            button.addEventListener('click', showCategoryModal);
+        }
     }
 }
