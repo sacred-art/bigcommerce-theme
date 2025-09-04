@@ -56,6 +56,7 @@ export default class Category extends CatalogPage {
         $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
 
         this.ariaNotifyNoProducts();
+        this.initCategoryButton();
     }
 
     ariaNotifyNoProducts() {
@@ -65,9 +66,6 @@ export default class Category extends CatalogPage {
         }
 
         $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
-
-        this.ariaNotifyNoProducts();
-        this.initCategoryButton();
     }
 
     initCategoryButton() {
