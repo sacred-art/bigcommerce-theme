@@ -1,0 +1,365 @@
+// =============================================================================
+// TESTIMONIALS COMPONENT
+// =============================================================================
+
+// Testimonial Section
+// -----------------------------------------------------------------------------
+
+.testimonialSection {
+    padding: 60px 0;
+    background-color: stencilColor("container-fill-base");
+    
+    &-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    &-title {
+        color: stencilColor("color-textHeading");
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        
+        @include breakpoint("small") {
+            font-size: 2rem;
+        }
+    }
+    
+    &-subtitle {
+        color: stencilColor("color-textSecondary");
+        font-size: 1.125rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+    
+    &-content {
+        position: relative;
+    }
+    
+    &-empty {
+        text-align: center;
+        padding: 40px 20px;
+        
+        &-message {
+            color: stencilColor("color-textSecondary");
+            font-style: italic;
+        }
+    }
+    
+    // Theme Variations
+    &--light {
+        background-color: #f8f9fa;
+        
+        .testimonialCard {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+        }
+    }
+    
+    &--dark {
+        background-color: stencilColor("color-greyDarkest");
+        color: #ffffff;
+        
+        .testimonialSection-title {
+            color: #ffffff;
+        }
+        
+        .testimonialSection-subtitle {
+            color: #cccccc;
+        }
+        
+        .testimonialCard {
+            background-color: stencilColor("color-greyDarker");
+            border: 1px solid stencilColor("color-greyMedium");
+        }
+    }
+}
+
+// Testimonial Grid
+// -----------------------------------------------------------------------------
+
+.testimonialGrid {
+    display: grid;
+    gap: 30px;
+    
+    &--1 {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    &--2 {
+        grid-template-columns: repeat(2, 1fr);
+        
+        @include breakpoint("small") {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    &--3 {
+        grid-template-columns: repeat(3, 1fr);
+        
+        @include breakpoint("medium") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @include breakpoint("small") {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    &--4 {
+        grid-template-columns: repeat(4, 1fr);
+        
+        @include breakpoint("large") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        @include breakpoint("medium") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @include breakpoint("small") {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    &-item {
+        display: flex;
+    }
+}
+
+// Testimonial Card
+// -----------------------------------------------------------------------------
+
+.testimonialCard {
+    background-color: stencilColor("container-fill-base");
+    border: 1px solid stencilColor("container-border-global-color-base");
+    border-radius: 12px;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    &-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    &-rating {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 20px;
+        
+        .testimonialCard-star {
+            width: 18px;
+            height: 18px;
+            fill: stencilColor("icon-ratingEmpty");
+            
+            &--filled {
+                fill: stencilColor("icon-ratingFull");
+            }
+        }
+    }
+    
+    &-quote {
+        flex-grow: 1;
+        margin: 0 0 25px 0;
+        position: relative;
+        
+        &::before {
+            content: '"';
+            font-size: 4rem;
+            color: stencilColor("color-primary");
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            line-height: 1;
+            font-family: serif;
+        }
+    }
+    
+    &-text {
+        color: stencilColor("color-textBase");
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0;
+        padding-left: 30px;
+        font-style: italic;
+    }
+    
+    &-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: auto;
+    }
+    
+    &-avatar {
+        flex-shrink: 0;
+        
+        &-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    
+    &-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    &-name {
+        color: stencilColor("color-textHeading");
+        font-weight: 600;
+        font-size: 1rem;
+        font-style: normal;
+    }
+    
+    &-location {
+        color: stencilColor("color-textSecondary");
+        font-size: 0.875rem;
+    }
+    
+    &-product {
+        color: stencilColor("color-primary");
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    
+    &-date {
+        color: stencilColor("color-textSecondary");
+        font-size: 0.8rem;
+    }
+    
+    // Theme Variations
+    &--light {
+        background-color: #ffffff;
+        border-color: #e9ecef;
+        
+        .testimonialCard-quote::before {
+            color: stencilColor("color-primary");
+        }
+    }
+    
+    &--dark {
+        background-color: stencilColor("color-greyDarker");
+        border-color: stencilColor("color-greyMedium");
+        
+        .testimonialCard-text {
+            color: #ffffff;
+        }
+        
+        .testimonialCard-name {
+            color: #ffffff;
+        }
+        
+        .testimonialCard-location,
+        .testimonialCard-date {
+            color: #cccccc;
+        }
+        
+        .testimonialCard-quote::before {
+            color: stencilColor("color-primary");
+        }
+    }
+}
+
+// Testimonial Carousel
+// -----------------------------------------------------------------------------
+
+.testimonialCarousel {
+    position: relative;
+    overflow: hidden;
+    
+    &-slide {
+        display: none;
+        
+        &.slick-active {
+            display: block;
+        }
+    }
+    
+    &-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    &-prev,
+    &-next {
+        background: stencilColor("button--primary-backgroundColor");
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+            background: stencilColor("button--primary-backgroundColorHover");
+        }
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: stencilColor("button--primary-color");
+        }
+    }
+}
+
+// Responsive Design
+// -----------------------------------------------------------------------------
+
+@include breakpoint("small") {
+    .testimonialSection {
+        padding: 40px 0;
+        
+        &-title {
+            font-size: 1.75rem;
+        }
+        
+        &-subtitle {
+            font-size: 1rem;
+        }
+    }
+    
+    .testimonialCard {
+        padding: 20px;
+        
+        &-quote::before {
+            font-size: 3rem;
+            top: -5px;
+            left: -5px;
+        }
+        
+        &-text {
+            padding-left: 25px;
+            font-size: 0.9rem;
+        }
+        
+        &-author {
+            gap: 12px;
+        }
+        
+        &-avatar-img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{{!--
+  Testimonial Section Component
+  
+  Parameters:
+  - title: Main heading for the testimonial section
+  - subtitle: Optional subtitle/description text
+  - testimonials: Array of testimonial objects
+  - display_count: Number of testimonials to display (defaults to 3)
+  - layout: Layout style ('grid' or 'carousel', defaults to 'grid')
+  - theme: Color theme ('default', 'light', 'dark', defaults to 'default')
+--}}
+
+<section class="testimonialSection testimonialSection--{{#if theme}}{{theme}}{{else}}default{{/if}}">
+    <div class="container">
+        {{#if title}}
+            <div class="testimonialSection-header">
+                <h2 class="testimonialSection-title">{{title}}</h2>
+                {{#if subtitle}}
+                    <p class="testimonialSection-subtitle">{{subtitle}}</p>
+                {{/if}}
+            </div>
+        {{/if}}
+
+        {{#if testimonials}}
+            <div class="testimonialSection-content">
+                {{#if (eq layout 'carousel')}}
+                    {{!-- Carousel Layout --}}
+                    <div class="testimonialCarousel" data-testimonial-carousel>
+                        {{#each testimonials}}
+                            {{#if (lt @index ../display_count)}}
+                                <div class="testimonialCarousel-slide">
+                                    {{> components/testimonials/testimonial-card 
+                                        testimonial=this 
+                                        index=@index
+                                        theme=../theme
+                                    }}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    
+                    {{!-- Carousel Navigation --}}
+                    <div class="testimonialCarousel-nav">
+                        <button type="button" class="testimonialCarousel-prev" aria-label="Previous testimonials">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chevron-left"></use>
+                            </svg>
+                        </button>
+                        <button type="button" class="testimonialCarousel-next" aria-label="Next testimonials">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-chevron-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+                {{else}}
+                    {{!-- Grid Layout --}}
+                    <div class="testimonialGrid testimonialGrid--{{#if display_count}}{{display_count}}{{else}}3{{/if}}">
+                        {{#each testimonials}}
+                            {{#if (lt @index ../display_count)}}
+                                <div class="testimonialGrid-item">
+                                    {{> components/testimonials/testimonial-card 
+                                        testimonial=this 
+                                        index=@index
+                                        theme=../theme
+                                    }}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        {{else}}
+            {{!-- Fallback content when no testimonials are provided --}}
+            <div class="testimonialSection-empty">
+                <p class="testimonialSection-empty-message">No testimonials available at this time.</p>
+            </div>
+        {{/if}}
+    </div>
+</section>

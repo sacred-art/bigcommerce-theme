@@ -1,0 +1,68 @@
+{{!--
+  Individual Testimonial Card Component
+  
+  Parameters:
+  - testimonial: Testimonial object containing:
+    - name: Customer name
+    - location: Customer location (optional)
+    - rating: Star rating (1-5, optional)
+    - text: Testimonial text content
+    - image: Customer photo (optional)
+    - product: Product name (optional)
+    - date: Testimonial date (optional)
+  - index: Index of testimonial in the list
+  - theme: Color theme for styling
+--}}
+
+<article class="testimonialCard testimonialCard--{{#if theme}}{{theme}}{{else}}default{{/if}}" data-testimonial-index="{{index}}">
+    <div class="testimonialCard-content">
+        {{!-- Rating Stars --}}
+        {{#if testimonial.rating}}
+            <div class="testimonialCard-rating" aria-label="Rating: {{testimonial.rating}} out of 5 stars">
+                {{#times testimonial.rating}}
+                    <svg class="testimonialCard-star testimonialCard-star--filled" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                    </svg>
+                {{/times}}
+                {{#times (subtract 5 testimonial.rating)}}
+                    <svg class="testimonialCard-star testimonialCard-star--empty" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                    </svg>
+                {{/times}}
+            </div>
+        {{/if}}
+
+        {{!-- Testimonial Text --}}
+        <blockquote class="testimonialCard-quote">
+            <p class="testimonialCard-text">"{{testimonial.text}}"</p>
+        </blockquote>
+
+        {{!-- Customer Information --}}
+        <div class="testimonialCard-author">
+            {{#if testimonial.image}}
+                <div class="testimonialCard-avatar">
+                    {{> components/common/responsive-img
+                        image=testimonial.image
+                        class="testimonialCard-avatar-img"
+                        fallback_size='80x80'
+                        lazyload='lazyload'
+                        default_image='img/default-avatar.png'
+                    }}
+                </div>
+            {{/if}}
+            
+            <div class="testimonialCard-author-info">
+                <cite class="testimonialCard-name">{{testimonial.name}}</cite>
+                {{#if testimonial.location}}
+                    <span class="testimonialCard-location">{{testimonial.location}}</span>
+                {{/if}}
+                {{#if testimonial.product}}
+                    <span class="testimonialCard-product">Verified purchase: {{testimonial.product}}</span>
+                {{/if}}
+                {{#if testimonial.date}}
+                    <time class="testimonialCard-date" datetime="{{testimonial.date}}">{{testimonial.date}}</time>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</article>
