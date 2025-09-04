@@ -18,6 +18,6 @@ window.Element.prototype.getClientRects = function () {
         }
         node = node.parentNode;
     }
-    var self = $(this);
-    return [{ width: self.width(), height: self.height() }];
+    // Return mock dimensions to avoid infinite recursion with jQuery width/height
+    return [{ width: 100, height: 100 }];
 };
